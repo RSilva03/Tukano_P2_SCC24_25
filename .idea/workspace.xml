@@ -5,154 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b013f37b-1a87-4b24-b50c-919686d0c9c6" name="Changes" comment="Refactor the files">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/blob_logic/api/Blobs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/blob_logic/api/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/blob_logic/api/rest/RestBlobs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/blob_logic/impl/JavaBlobs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/blob_logic/impl/Token.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/blob_logic/impl/rest/RestBlobsResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/blob_logic/impl/rest/RestResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/blob_logic/impl/rest/TukanoRestServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/blob_logic/impl/rest/utils/CustomLoggingFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/blob_logic/impl/rest/utils/GenericExceptionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/blob_logic/impl/storage/BlobStorage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/blob_logic/impl/storage/FilesystemStorage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/utils/Args.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/utils/Hash.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/utils/Hex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/utils/Hibernate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/utils/IO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/utils/IP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/utils/JSON.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/utils/Props.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/utils/Queues.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/utils/Random.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/utils/Sleep.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/utils/TLS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/utils/TryCatch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/utils/cache/Cache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/utils/cache/RedisCache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/utils/db/DBHibernate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/java/utils/db/DBNoSql.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/resources/azure-keys.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/webapp/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/webapp/WEB-INF/classes/hibernate.cfg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/webapp/WEB-INF/lib/Icon_" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blobService/src/main/webapp/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/api/Blobs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/api/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/api/Short.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/api/Shorts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/api/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/api/Users.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/api/rest/RestShorts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/api/rest/RestUsers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/impl/JavaShorts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/impl/JavaUsers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/impl/Token.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/impl/data/Following.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/impl/data/Likes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/impl/rest/RestResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/impl/rest/RestShortsResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/impl/rest/RestUsersResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/impl/rest/TukanoRestServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/impl/rest/utils/CustomLoggingFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/tukano/impl/rest/utils/GenericExceptionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/utils/Args.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/utils/Hash.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/utils/Hex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/utils/Hibernate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/utils/IO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/utils/IP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/utils/JSON.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/utils/Props.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/utils/Queues.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/utils/Random.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/utils/Sleep.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/utils/TLS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/utils/TryCatch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/utils/cache/Cache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/utils/cache/RedisCache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/utils/db/DBHibernate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/java/utils/db/DBNoSql.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/resources/azure-keys.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/webapp/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/webapp/WEB-INF/classes/hibernate.cfg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/webapp/WEB-INF/lib/Icon_" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tukano/src/main/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projeto1_SCC2425.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/blob_logic/api/Blobs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/blob_logic/api/Result.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/blob_logic/api/rest/RestBlobs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/blob_logic/impl/JavaBlobs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/blob_logic/impl/Token.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/blob_logic/impl/rest/RestBlobsResource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/blob_logic/impl/rest/RestResource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/blob_logic/impl/rest/TukanoRestServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/blob_logic/impl/rest/utils/CustomLoggingFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/blob_logic/impl/rest/utils/GenericExceptionMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/blob_logic/impl/storage/BlobStorage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/blob_logic/impl/storage/FilesystemStorage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/api/Blobs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/api/Result.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/api/Short.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/api/Shorts.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/api/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/api/Users.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/api/rest/RestShorts.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/api/rest/RestUsers.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/impl/JavaShorts.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/impl/JavaUsers.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/impl/Token.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/impl/data/Following.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/impl/data/Likes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/impl/rest/RestResource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/impl/rest/RestShortsResource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/impl/rest/RestUsersResource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/impl/rest/TukanoRestServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/impl/rest/utils/CustomLoggingFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tukano/impl/rest/utils/GenericExceptionMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Args.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Hash.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Hex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Hibernate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/IO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/IP.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/JSON.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Props.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Queues.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Random.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Sleep.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/TLS.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/TryCatch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/cache/Cache.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/cache/RedisCache.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/db/DBHibernate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/db/DBNoSql.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/azure-keys.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/test/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/tukano/clients/rest/RestBlobsClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/tukano/clients/rest/RestClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/tukano/clients/rest/RestShortsClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/tukano/clients/rest/RestUsersClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/hibernate.cfg.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/Icon_" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blobService/deployBlob.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blobService/serviceBlob.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cache.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tukano/deployTukano.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tukano/serviceTukano.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blobService/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tukano.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tukano.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,10 +27,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
 }]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2pXZSjmOXmHFjGk0QTIL54oBaBs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -173,16 +43,26 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/anton/Desktop/Tukano_P2_SCC24_25/tukano",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\anton\Desktop\Tukano_P2_SCC24_25\tukano" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
@@ -213,6 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1732914382854</updated>
       <workItem from="1732914384238" duration="692000" />
+      <workItem from="1732915632435" duration="3091000" />
     </task>
     <servers />
   </component>

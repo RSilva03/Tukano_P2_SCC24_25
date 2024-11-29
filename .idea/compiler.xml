@@ -9,5 +9,9 @@
         <module name="tukano" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="blobService" target="17" />
+      <module name="tukano (1)" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>

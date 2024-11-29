@@ -1,4 +1,4 @@
-package tukano.impl;
+package blob_logic.impl;
 
 import static java.lang.String.format;
 import static tukano.api.Result.error;
@@ -8,9 +8,10 @@ import java.util.logging.Logger;
 
 import tukano.api.Blobs;
 import tukano.api.Result;
+import tukano.impl.Token;
 import tukano.impl.rest.TukanoRestServer;
-import tukano.impl.storage.BlobStorage;
-import tukano.impl.storage.FilesystemStorage;
+import blob_logic.impl.storage.BlobStorage;
+import blob_logic.impl.storage.FilesystemStorage;
 import utils.Hash;
 import utils.Hex;
 import java.net.*;

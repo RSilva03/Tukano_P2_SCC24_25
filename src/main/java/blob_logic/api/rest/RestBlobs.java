@@ -1,4 +1,4 @@
-package tukano.api.rest;
+package blob_logic.api.rest;
 
 
 import jakarta.ws.rs.Consumes;

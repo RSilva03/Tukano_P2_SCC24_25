@@ -1,15 +1,14 @@
-package tukano.impl.rest;
+package blob_logic.impl.rest;
+
+import jakarta.ws.rs.core.Application;
+import tukano.impl.rest.RestShortsResource;
+import tukano.impl.rest.RestUsersResource;
+import utils.IP;
+import utils.Props;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Logger;
-
-import blob_logic.impl.rest.RestBlobsResource;
-
-import jakarta.ws.rs.core.Application;
-
-import utils.IP;
-import utils.Props;
 
 
 public class TukanoRestServer extends Application{

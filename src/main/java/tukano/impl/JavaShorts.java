@@ -13,6 +13,7 @@ import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+import blob_logic.impl.JavaBlobs;
 import tukano.api.Blobs;
 import tukano.api.Result;
 import tukano.api.Short;

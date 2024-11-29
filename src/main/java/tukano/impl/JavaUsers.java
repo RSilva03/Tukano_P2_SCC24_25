@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.logging.Logger;
 
+import blob_logic.impl.JavaBlobs;
 import tukano.api.Result;
 import tukano.api.User;
 import tukano.api.Users;

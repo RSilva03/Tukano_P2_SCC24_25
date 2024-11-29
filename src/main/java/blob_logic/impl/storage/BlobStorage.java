@@ -1,4 +1,4 @@
-package tukano.impl.storage;
+package blob_logic.impl.storage;
 
 import java.util.function.Consumer;
 

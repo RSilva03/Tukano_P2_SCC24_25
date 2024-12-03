@@ -1,0 +1,33 @@
+// Docker part //
+
+docker build -t apocalipse15/tukano-1:latest .
+
+docker push apocalipse15/tukano-1:latest
+
+// Kubernetes part //
+
+minikube start
+
+/* Do this for all yaml in the yamlsFiles folder */
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+
+/*  Verify if active!  */
+kubectl get pods
+kubectl get services
+
+// Check the ip adress to access the tukano app
+minikube service tukano-service
+
+minikube delete
+
+
+
+
+// apply all yamlsFiles
+kubectl apply -f .\yamlsFiles\postgreDeployment.yaml
+kubectl apply -f .\yamlsFiles\postgreService.yaml
+
+kubectl apply -f .\yamlsFiles\tukanoDeployment.yaml
+kubectl apply -f .\yamlsFiles\tukanoService.yaml
+

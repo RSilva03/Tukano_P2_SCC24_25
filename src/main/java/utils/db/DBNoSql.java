@@ -21,7 +21,7 @@ import utils.Props;
 
 public class DBNoSql {
 
-	private static String CONNECTION_URL = "https://scc242570567.documents.azure.com:443/"; // replace with your own
+	/*private static String CONNECTION_URL = "https://scc242570567.documents.azure.com:443/"; // replace with your own
 	private static String DB_KEY = "aUuUHB3qSdC92YG3iJ9nEgfV6nVnK4cfefsapqEvXQq0T3QnJPz8OA3dmgKkxesviNOs5nY9Fc46ACDbHKQ29w==";
 	private static String DB_NAME = "tukano";
 
@@ -102,5 +102,5 @@ public class DBNoSql {
 			case 409 -> ErrorCode.CONFLICT;
 			default -> ErrorCode.INTERNAL_ERROR;
 		};
-	}
+	}*/
 }

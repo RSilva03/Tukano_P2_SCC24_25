@@ -23,17 +23,22 @@ import tukano.api.Result.ErrorCode;
  */
 public class Hibernate {
 	private static Logger Log = Logger.getLogger(Hibernate.class.getName());
-
-	//private static final String HIBERNATE_CFG_FILE = "webapps/root/WEB-INF/classes/hibernate.cfg.xml";
-	//private static final String HIBERNATE_CFG_FILE = "webapps/root/WEB-INF/classes/hibernate.cfg.xml";
 	private static SessionFactory sessionFactory;
 	private static Hibernate instance;
 
 	private Hibernate() {
 		try {
-			sessionFactory = new Configuration().configure().buildSessionFactory();
+			//sessionFactory = new Configuration().configure().buildSessionFactory();
+			Configuration configuration = new Configuration();
 
-			//sessionFactory = new Configuration().configure(new File("hibernate.cfg.xml")).buildSessionFactory();
+
+			configuration.setProperty("hibernate.connection.url", "jdbc:postgresql://postgres:5432/tukano_db");
+			configuration.setProperty("hibernate.connection.username", "tukano_app");
+			configuration.setProperty("hibernate.connection.password", "tukano_password");
+			configuration.setProperty("hibernate.show_sql", "true");
+
+			sessionFactory = configuration.buildSessionFactory();
+
 			Log.info("log here:" + sessionFactory.toString());
 		} catch (Exception e) {
 			Log.info("Não fez o sessionFactory pq: " + e.getMessage());

@@ -23,4 +23,4 @@ spec:
             - name: POSTGRES_PASSWORD
               value: "tukano_password"
             - name: POSTGRES_DB
-              value: "tukano_db"
+              value: "tukano"

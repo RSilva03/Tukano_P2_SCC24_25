@@ -28,16 +28,15 @@ public class Hibernate {
 
 	private Hibernate() {
 		try {
-			//sessionFactory = new Configuration().configure().buildSessionFactory();
-			Configuration configuration = new Configuration();
-
+			sessionFactory = new Configuration().configure().buildSessionFactory();
+			/*Configuration configuration = new Configuration();
 
 			configuration.setProperty("hibernate.connection.url", "jdbc:postgresql://postgres:5432/tukano_db");
 			configuration.setProperty("hibernate.connection.username", "tukano_app");
 			configuration.setProperty("hibernate.connection.password", "tukano_password");
 			configuration.setProperty("hibernate.show_sql", "true");
 
-			sessionFactory = configuration.buildSessionFactory();
+			sessionFactory = configuration.buildSessionFactory();*/
 
 			Log.info("log here:" + sessionFactory.toString());
 		} catch (Exception e) {

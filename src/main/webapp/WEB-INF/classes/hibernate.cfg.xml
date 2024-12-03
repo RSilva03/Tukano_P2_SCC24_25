@@ -1,18 +1,28 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!--suppress HibernateConfigDomFacetInspection -->
 <hibernate-configuration>
 	<session-factory>
 		<!-- JDBC Database connection settings -->
-		<property name="connection.driver_class">org.postgresql.Driver</property>
-		<!-- JDBC connection pool settings ... using built-in test pool -->
-		<property name="connection.pool_size">64</property>
-		<!-- Echo the SQL to stdout -->
-		<property name="show_sql">true</property>
-		<!-- Set the current session context -->
-		<property name="current_session_context_class">thread</property>
-		<!-- Drop and re-create the database schema on startup -->
-		<property name="hbm2ddl.auto">create-drop</property>
-		<!-- dbcp connection pool configuration -->
-		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<!-- Database connection settings -->
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://postgres:5432/tukano</property>
+		<property name="hibernate.connection.username">tukano_app</property>
+		<property name="hibernate.connection.password">tukano_password</property>
+
+		<!-- JDBC connection pool settings -->
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.timeout">300</property>
+		<property name="hibernate.c3p0.max_statements">50</property>
+		<property name="hibernate.c3p0.idle_test_period">3000</property>
+
+		<!-- SQL Dialect -->
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+		<!-- Enable Hibernate SQL logging (optional) -->
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+
 		<property name="hibernate.dbcp.initialSize">5</property>
 		<property name="hibernate.dbcp.maxTotal">20</property>
 		<property name="hibernate.dbcp.maxIdle">10</property>

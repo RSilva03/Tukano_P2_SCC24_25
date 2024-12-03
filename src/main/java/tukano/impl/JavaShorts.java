@@ -32,9 +32,9 @@ public class JavaShorts implements Shorts {
 	
 	private static Shorts instance;
 
-	private final DBNoSql dbNoSqlShorts;
-	private final DBNoSql dbNoSqlLikes;
-	private final DBNoSql dbNoSqlFollowers;
+	//private final DBNoSql dbNoSqlShorts;
+	//private final DBNoSql dbNoSqlLikes;
+	//private final DBNoSql dbNoSqlFollowers;
 
 	private boolean isNoSQL;
 
@@ -45,10 +45,10 @@ public class JavaShorts implements Shorts {
 	}
 	
 	private JavaShorts() {
-		dbNoSqlShorts = DBNoSql.getInstance(Short.class.getSimpleName().toLowerCase() + "s");
-		dbNoSqlLikes = DBNoSql.getInstance(Likes.class.getSimpleName().toLowerCase());
-		dbNoSqlFollowers = DBNoSql.getInstance("followers");
-		isNoSQL = true;
+		//dbNoSqlShorts = DBNoSql.getInstance(Short.class.getSimpleName().toLowerCase() + "s");
+		//dbNoSqlLikes = DBNoSql.getInstance(Likes.class.getSimpleName().toLowerCase());
+		//dbNoSqlFollowers = DBNoSql.getInstance("followers");
+		isNoSQL = false;
 	}
 
 	@Override
@@ -56,7 +56,7 @@ public class JavaShorts implements Shorts {
 		Log.info(() -> format("createShort : userId = %s, pwd = %s\n", userId, password));
 
 		if(isNoSQL){
-			return errorOrResult( okUser(userId, password), user -> {
+			/*return errorOrResult( okUser(userId, password), user -> {
 				var shortId = format("%s+%s", userId, UUID.randomUUID());
 				var blobUrl = format("%s/%s/%s", TukanoRestServer.serverURI, Blobs.NAME, shortId);
 				var shrt = new Short(shortId, userId, blobUrl);
@@ -65,7 +65,8 @@ public class JavaShorts implements Shorts {
 				if(aux.isOK())
 					Cache.put(shortId, JSON.encode(shrt));
 				return aux;
-			});
+			});*/
+			return null;
 		} else {
 			return errorOrResult( okUser(userId, password), user -> {
 
@@ -91,8 +92,9 @@ public class JavaShorts implements Shorts {
 
 		List<Long> likes;
 		if (isNoSQL){
-			var query = String.format("SELECT VALUE COUNT(1) FROM Likes l WHERE l.shortId = '%s'", shortId);
-			likes = dbNoSqlShorts.query(query, Long.class).value();
+			//var query = String.format("SELECT VALUE COUNT(1) FROM Likes l WHERE l.shortId = '%s'", shortId);
+			//likes = dbNoSqlShorts.query(query, Long.class).value();
+			return null;
 		}
 		else{
 			var query = format("SELECT count(*) FROM Likes l WHERE l.shortId = '%s'", shortId);
@@ -105,7 +107,8 @@ public class JavaShorts implements Shorts {
 			return errorOrValue( Result.ok(JSON.decode(aux, Short.class)), shrt -> shrt.copyWithLikes_And_Token( likes.get(0)));
 
 		if (isNoSQL)
-			return errorOrValue( dbNoSqlShorts.getOne(shortId, Short.class), shrt -> shrt.copyWithLikes_And_Token( likes.get(0)));
+			//return errorOrValue( dbNoSqlShorts.getOne(shortId, Short.class), shrt -> shrt.copyWithLikes_And_Token( likes.get(0)));
+			return null;
 		else
 			return errorOrValue( DBHibernate.getOne(shortId, Short.class), shrt -> shrt.copyWithLikes_And_Token( likes.get(0)));
 	}
@@ -120,9 +123,10 @@ public class JavaShorts implements Shorts {
 			return errorOrResult( okUser( shrt.getOwnerId(), password), user -> {
 
 				if(isNoSQL) {
-					dbNoSqlShorts.deleteOne( shrt);
+					/*dbNoSqlShorts.deleteOne( shrt);
 					var query = format("SELECT l.userId FROM Likes l WHERE l.shortId = '%s'", shortId);
-					dbNoSqlLikes.query(query, Likes.class).value().forEach(l -> dbNoSqlLikes.deleteOne(l));
+					dbNoSqlLikes.query(query, Likes.class).value().forEach(l -> dbNoSqlLikes.deleteOne(l));*/
+					return null;
 				}else {
 					DBHibernate.deleteOne(shrt);
 					var query = format("SELECT * FROM Likes WHERE shortId = '%s'", shortId);
@@ -142,7 +146,8 @@ public class JavaShorts implements Shorts {
 
 		if (isNoSQL) {
 			var query = format("SELECT s.shortId FROM Short s WHERE s.ownerId = '%s'", userId);
-			return errorOrValue(okUser(userId), dbNoSqlShorts.query(query, Short.class).value().stream().map(Short::getShortId).toList());
+			//return errorOrValue(okUser(userId), dbNoSqlShorts.query(query, Short.class).value().stream().map(Short::getShortId).toList());
+			return null;
 		}else {
 			var query = format("SELECT * FROM Shorts WHERE ownerId = '%s'", userId);
 			return errorOrValue(okUser(userId), DBHibernate.sql(query, Short.class).stream().map(Short::getShortId).toList());
@@ -156,7 +161,8 @@ public class JavaShorts implements Shorts {
 		return errorOrResult( okUser(userId1, password), user -> {
 			var f = new Following(userId1, userId2);
 			if (isNoSQL)
-				return errorOrVoid( okUser( userId2), isFollowing ? dbNoSqlFollowers.insertOne( f ) : dbNoSqlFollowers.deleteOne( f ));
+				//return errorOrVoid( okUser( userId2), isFollowing ? dbNoSqlFollowers.insertOne( f ) : dbNoSqlFollowers.deleteOne( f ));
+				return null;
 			else
 				return errorOrVoid( okUser( userId2), isFollowing ? DBHibernate.insertOne( f ) : DBHibernate.deleteOne( f ));
 		});			
@@ -169,7 +175,8 @@ public class JavaShorts implements Shorts {
 
 		if(isNoSQL) {
 			var query = format("SELECT f.follower FROM Following f WHERE f.followee = '%s'", userId);
-			return errorOrValue(okUser(userId, password), dbNoSqlFollowers.query(query, Following.class).value().stream().map(Following::getFollower).toList());
+			//return errorOrValue(okUser(userId, password), dbNoSqlFollowers.query(query, Following.class).value().stream().map(Following::getFollower).toList());
+			return null;
 		}else {
 			var query = format("Select * from Following where followee = '%s'", userId);
 
@@ -184,7 +191,8 @@ public class JavaShorts implements Shorts {
 		return errorOrResult( getShort(shortId), shrt -> {
 			var l = new Likes(userId, shortId, shrt.getOwnerId());
 			if(isNoSQL)
-				return errorOrVoid( okUser( userId, password), isLiked ? dbNoSqlLikes.insertOne( l ) : dbNoSqlLikes.deleteOne( l ));
+				//return errorOrVoid( okUser( userId, password), isLiked ? dbNoSqlLikes.insertOne( l ) : dbNoSqlLikes.deleteOne( l ));
+				return null;
 			else
 				return errorOrVoid( okUser( userId, password), isLiked ? DBHibernate.insertOne( l ) : DBHibernate.deleteOne( l ));
 		});
@@ -198,7 +206,8 @@ public class JavaShorts implements Shorts {
 
 			if (isNoSQL) {
 				var query = format("SELECT l.userId FROM Likes l WHERE l.shortId = '%s'", shortId);
-				return errorOrValue(okUser(shrt.getOwnerId(), password), dbNoSqlLikes.query(query, Likes.class).value().stream().map(Likes::getUserId).toList());
+				//return errorOrValue(okUser(shrt.getOwnerId(), password), dbNoSqlLikes.query(query, Likes.class).value().stream().map(Likes::getUserId).toList());
+				return null;
 			}else {
 				var query = format("SELECT * FROM Likes WHERE shortId = '%s'", shortId);
 				return errorOrValue(okUser(shrt.getOwnerId(), password), DBHibernate.sql(query, Likes.class).stream().map(Likes::getUserId).toList());
@@ -212,7 +221,7 @@ public class JavaShorts implements Shorts {
 		Log.info(() -> format("getFeed : userId = %s, pwd = %s\n", userId, password));
 
 		if(isNoSQL){
-			var followeeIdsQuery = format("SELECT f.followee FROM Following f WHERE f.follower = '%s'", userId);
+			/*var followeeIdsQuery = format("SELECT f.followee FROM Following f WHERE f.follower = '%s'", userId);
 			var followeeIds = new ArrayList<>(dbNoSqlFollowers.query(followeeIdsQuery, String.class).value());
 
 			followeeIds.add(userId);
@@ -228,7 +237,8 @@ public class JavaShorts implements Shorts {
 					.sorted(Comparator.comparing(Short::getTimestamp).reversed())
 					.collect(Collectors.toList());
 
-			return errorOrValue(okUser(userId, password), combinedShorts.stream().map(Short::getShortId).toList());
+			return errorOrValue(okUser(userId, password), combinedShorts.stream().map(Short::getShortId).toList());*/
+			return null;
 		} else {
 			var followeeIdsQuery = format("SELECT * FROM Following WHERE follower = '%s'", userId);
 			var followeeIds = new ArrayList<>(DBHibernate.sql(followeeIdsQuery, Following.class));
@@ -273,8 +283,7 @@ public class JavaShorts implements Shorts {
 			return error(FORBIDDEN);
 
 		if (isNoSQL){
-
-			var query1 = format("SELECT * FROM Short s WHERE s.ownerId = '%s'", userId);
+			/*var query1 = format("SELECT * FROM Short s WHERE s.ownerId = '%s'", userId);
 			var aux = dbNoSqlShorts.query(query1, Short.class).value();//.forEach( s -> dbShorts.deleteOne( s ) );
 
 			for (Short srt: aux ) {
@@ -288,7 +297,8 @@ public class JavaShorts implements Shorts {
 			var query3 = format("SELECT * FROM Likes l WHERE l.ownerId = '%s' OR l.userId = '%s'", userId, userId);
 			dbNoSqlLikes.query(query3, Likes.class).value().forEach(l -> dbNoSqlLikes.deleteOne( l ) );
 
-			return ok();
+			return ok();*/
+			return null;
 		} else {
 			return DBHibernate.transaction( (hibernate) -> {
 
@@ -311,7 +321,6 @@ public class JavaShorts implements Shorts {
 		aux.addView();
 
 		return Result.ok();
-
 	}
 	
 }

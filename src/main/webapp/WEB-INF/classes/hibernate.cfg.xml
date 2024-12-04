@@ -5,9 +5,9 @@
 		<!-- JDBC Database connection settings -->
 		<!-- Database connection settings -->
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-		<property name="hibernate.connection.url">jdbc:postgresql://postgres:5432/tukano</property>
-		<property name="hibernate.connection.username">tukano_app</property>
-		<property name="hibernate.connection.password">tukano_password</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://postgres-service:5432/tukano</property>
+		<property name="hibernate.connection.username">tukanop2</property>
+		<property name="hibernate.connection.password">tukanopass2</property>
 
 		<!-- JDBC connection pool settings -->
 		<property name="hibernate.c3p0.min_size">5</property>
@@ -15,6 +15,7 @@
 		<property name="hibernate.c3p0.timeout">300</property>
 		<property name="hibernate.c3p0.max_statements">50</property>
 		<property name="hibernate.c3p0.idle_test_period">3000</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
 
 		<!-- SQL Dialect -->
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
@@ -23,11 +24,6 @@
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
 
-		<property name="hibernate.dbcp.initialSize">5</property>
-		<property name="hibernate.dbcp.maxTotal">20</property>
-		<property name="hibernate.dbcp.maxIdle">10</property>
-		<property name="hibernate.dbcp.minIdle">5</property>
-		<property name="hibernate.dbcp.maxWaitMillis">-1</property>
 		<mapping class="tukano.api.User" />
 		<mapping class="tukano.api.Short" />
 		<mapping class="tukano.impl.data.Following" />

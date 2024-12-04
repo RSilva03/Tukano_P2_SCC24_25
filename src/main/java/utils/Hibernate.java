@@ -29,6 +29,7 @@ public class Hibernate {
 	private Hibernate() {
 		try {
 			sessionFactory = new Configuration().configure().buildSessionFactory();
+
 			/*Configuration configuration = new Configuration();
 
 			configuration.setProperty("hibernate.connection.url", "jdbc:postgresql://postgres:5432/tukano_db");

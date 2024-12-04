@@ -17,3 +17,34 @@ spec:
           image: apocalipse15/tukano-1:latest
           ports:
             - containerPort: 8080
+          volumeMounts:
+            - name: tukano-storage
+              mountPath: /data
+      volumes:
+        - name: tukano-storage
+          persistentVolumeClaim:
+            claimName: tukano-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: tukano-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: tukano-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /data/tukano  # Make sure this path exists on the host machine
+  persistentVolumeReclaimPolicy: Retain  # You can choose Retain, Recycle, or Delete based on your needs

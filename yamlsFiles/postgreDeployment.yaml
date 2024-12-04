@@ -19,8 +19,8 @@ spec:
             - containerPort: 5432
           env:
             - name: POSTGRES_USER
-              value: "tukano_app"
+              value: "tukanop2"
             - name: POSTGRES_PASSWORD
-              value: "tukano_password"
+              value: "tukanopass2"
             - name: POSTGRES_DB
               value: "tukano"

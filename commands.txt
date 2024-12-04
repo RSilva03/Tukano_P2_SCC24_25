@@ -23,7 +23,6 @@ kubectl apply -f .\yamlsFiles\tukanoService.yaml
 kubectl get pods
 kubectl get services
 
-
 // Check the ip adress to access the tukano app
 minikube service tukano-service
 
@@ -32,3 +31,5 @@ minikube delete
 minikube service tukano-service --url
 
 kubectl logs <pod-name>
+
+kubectl exec -it <your-app-pod> -- nslookup postgres-service

@@ -4,11 +4,11 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 public class RedisCache {
-    private static final String RedisHostname = "cachescc242570567.redis.cache.windows.net";
-    private static final String RedisKey = "kvq8m7NC3VvDLe4bX3dKF8zf0M4iJu3I5AzCaLkAT1o=";
-    private static final int REDIS_PORT = 6380;
+    private static final String RedisHostname = "redis";
+    private static final String RedisKey = "yourpassword";
+    private static final int REDIS_PORT = 6379;
     private static final int REDIS_TIMEOUT = 1000;
-    private static final boolean Redis_USE_TLS = true;
+    private static final boolean Redis_USE_TLS = false;
 
     private static JedisPool instance;
 
@@ -25,7 +25,7 @@ public class RedisCache {
         poolConfig.setTestWhileIdle(true);
         poolConfig.setNumTestsPerEvictionRun(3);
         poolConfig.setBlockWhenExhausted(true);
-        instance = new JedisPool(poolConfig, RedisHostname, REDIS_PORT, REDIS_TIMEOUT, RedisKey, Redis_USE_TLS);
+        instance = new JedisPool(poolConfig, RedisHostname, REDIS_PORT, REDIS_TIMEOUT, Redis_USE_TLS);
         return instance;
     }
 }

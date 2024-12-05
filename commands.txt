@@ -19,6 +19,9 @@ kubectl apply -f .\yamlsFiles\postgreService.yaml
 kubectl apply -f .\yamlsFiles\tukanoDeployment.yaml
 kubectl apply -f .\yamlsFiles\tukanoService.yaml
 
+kubectl apply -f .\yamlsFiles\redisDeployment.yaml
+kubectl apply -f .\yamlsFiles\redisService.yaml
+
 /*  Verify if active!  */
 kubectl get pods
 kubectl get services
@@ -33,3 +36,5 @@ minikube service tukano-service --url
 kubectl logs <pod-name>
 
 kubectl exec -it <your-app-pod> -- nslookup postgres-service
+
+kubectl exec -it tukano-deployment-7d5bc5c8f7-wcrrj -- redis-cli -h redis -p 6379 ping

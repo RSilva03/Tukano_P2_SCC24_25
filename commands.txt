@@ -15,12 +15,10 @@ kubectl apply -f service.yaml
 // apply all yamlsFiles
 kubectl apply -f .\yamlsFiles\postgreDeployment.yaml
 kubectl apply -f .\yamlsFiles\postgreService.yaml
-
-kubectl apply -f .\yamlsFiles\tukanoDeployment.yaml
-kubectl apply -f .\yamlsFiles\tukanoService.yaml
-
 kubectl apply -f .\yamlsFiles\redisDeployment.yaml
 kubectl apply -f .\yamlsFiles\redisService.yaml
+kubectl apply -f .\yamlsFiles\tukanoDeployment.yaml
+kubectl apply -f .\yamlsFiles\tukanoService.yaml
 
 /*  Verify if active!  */
 kubectl get pods

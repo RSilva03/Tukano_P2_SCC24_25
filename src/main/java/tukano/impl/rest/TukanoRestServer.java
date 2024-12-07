@@ -12,8 +12,11 @@ import jakarta.ws.rs.core.Application;
 
 import tukano.impl.Token;
 import utils.Args;
+import utils.Authentication;
 import utils.IP;
 import utils.Props;
+import utils.auth.RequestCookiesCleanupFilter;
+import utils.auth.RequestCookiesFilter;
 
 
 public class TukanoRestServer extends Application{
@@ -38,6 +41,11 @@ public class TukanoRestServer extends Application{
 		resources.add(RestBlobsResource.class);
 		resources.add(RestUsersResource.class);
 		resources.add(RestShortsResource.class);
+
+		resources.add(RequestCookiesFilter.class);
+		resources.add(RequestCookiesCleanupFilter.class);
+		resources.add(Authentication.class);
+
 		Props.load("azure-keys.props");
 		//Token.setSecret("tukano");
 	}

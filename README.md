@@ -1,1 +1,3 @@
-# Tukano_P2_SCC24_25
+Rodrigo Silva Nº70567 rag.silva@campus.fct.unl.pt
+
+António Salselas Nº70568 a.salselas@campus.fct.unl.pt

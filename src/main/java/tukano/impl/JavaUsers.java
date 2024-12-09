@@ -50,27 +50,16 @@ public class JavaUsers implements Users {
 
 		var a = Cache.get(user.getUserId());
 
-		if(isNoSQL){
-			/*if(a == null) {
-				Result<String> b = errorOrValue(dbNoSql.insertOne(user), user.getUserId());
-				if (b.isOK())
-					Cache.put(user.userId(), JSON.encode(user));
-				return b;
-			} else {
-				return error(Result.ErrorCode.CONFLICT);
-			}*/
-			return null;
+		if(a == null) {
+			Result<String> b = errorOrValue(DBHibernate.insertOne( user), user.getUserId());
+			Log.info("Create: " + b.isOK());
+			if (b.isOK())
+				Cache.put(user.userId(), JSON.encode(user));
+			return b;
 		} else {
-			if(a == null) {
-				Result<String> b = errorOrValue(DBHibernate.insertOne( user), user.getUserId());
-				Log.info("Create: " + b.isOK());
-				if (b.isOK())
-					Cache.put(user.userId(), JSON.encode(user));
-				return b;
-			} else {
-				return error(Result.ErrorCode.CONFLICT);
-			}
+			return error(Result.ErrorCode.CONFLICT);
 		}
+
 
 	}
 
@@ -83,19 +72,10 @@ public class JavaUsers implements Users {
 
 		var a = Cache.get(userId);
 
-		if(isNoSQL){
-			/*if(a == null)
-				return validatedUserOrError( dbNoSql.getOne( userId, User.class), pwd);
-			else{
-				return validatedUserOrError(Result.ok(JSON.decode(a, User.class)), pwd);
-			}*/
-			return null;
-		} else {
-			if(a == null)
-				return validatedUserOrError( DBHibernate.getOne( userId, User.class), pwd);
-			else{
-				return validatedUserOrError(Result.ok(JSON.decode(a, User.class)), pwd);
-			}
+		if(a == null)
+			return validatedUserOrError( DBHibernate.getOne( userId, User.class), pwd);
+		else{
+			return validatedUserOrError(Result.ok(JSON.decode(a, User.class)), pwd);
 		}
 	}
 
@@ -106,19 +86,10 @@ public class JavaUsers implements Users {
 		if (badUpdateUserInfo(userId, pwd, other))
 			return error(BAD_REQUEST);
 
-		if(isNoSQL){
-			/*var aux = errorOrResult( validatedUserOrError(dbNoSql.getOne( userId, User.class), pwd), user -> dbNoSql.updateOne( user.updateFrom(other)));
-            if(aux.isOK())
-				Cache.replace(userId, JSON.encode(aux.value()));
-			return aux;
-			 */
-			return null;
-		} else {
-			var aux = errorOrResult( validatedUserOrError(DBHibernate.getOne( userId, User.class), pwd), user -> DBHibernate.updateOne( user.updateFrom(other)));
-			if(aux.isOK())
-				Cache.replace(userId, JSON.encode(aux.value()));
-			return aux;
-		}
+		var aux = errorOrResult( validatedUserOrError(DBHibernate.getOne( userId, User.class), pwd), user -> DBHibernate.updateOne( user.updateFrom(other)));
+		if(aux.isOK())
+			Cache.replace(userId, JSON.encode(aux.value()));
+		return aux;
 	}
 
 	@Override
@@ -128,29 +99,14 @@ public class JavaUsers implements Users {
 		if (userId == null || pwd == null )
 			return error(BAD_REQUEST);
 
-		if(isNoSQL){
-			/*return errorOrResult( validatedUserOrError(dbNoSql.getOne( userId, User.class), pwd), user -> {
-
-				Executors.defaultThreadFactory().newThread( () -> {
-					JavaShorts.getInstance().deleteAllShorts(userId, pwd, Token.get(userId));
-					JavaBlobs.getInstance().deleteAllBlobs(userId, Token.get(userId));
-				}).start();
-				Cache.delete(userId);
-				return dbNoSql.deleteOne( user );
-			});*/
-			return null;
-		} else{
-			return errorOrResult( validatedUserOrError(DBHibernate.getOne( userId, User.class), pwd), user -> {
-
-
-				Executors.defaultThreadFactory().newThread( () -> {
-					JavaShorts.getInstance().deleteAllShorts(userId, pwd, Token.get(userId));
-					JavaBlobs.getInstance().deleteAllBlobs(userId, Token.get(userId));
-				}).start();
-				Cache.delete(userId);
-				return DBHibernate.deleteOne( user);
-			});
-		}
+		return errorOrResult( validatedUserOrError(DBHibernate.getOne( userId, User.class), pwd), user -> {
+			Executors.defaultThreadFactory().newThread( () -> {
+				JavaShorts.getInstance().deleteAllShorts(userId, pwd, Token.get(userId));
+				JavaBlobs.getInstance().deleteAllBlobs(userId, Token.get(userId));
+			}).start();
+			Cache.delete(userId);
+			return DBHibernate.deleteOne( user);
+		});
 	}
 
 	@Override
@@ -161,25 +117,13 @@ public class JavaUsers implements Users {
 			return error(BAD_REQUEST);
 		}
 
-		if(isNoSQL){
-			/*var query = format("SELECT * FROM c WHERE CONTAINS(UPPER(c.userId), '%s')", pattern.toUpperCase());
-			var hits = dbNoSql.query(query, User.class).value()
-					.stream()
-					.map(User::copyWithoutPassword)
-					.toList();
+		var query = format("SELECT * FROM Users u WHERE UPPER(u.userId) LIKE '%%%s%%'", pattern.toUpperCase());
+		var hits = DBHibernate.sql(query, User.class)
+				.stream()
+				.map(User::copyWithoutPassword)
+				.toList();
 
-			return ok(hits);*/
-			return null;
-		} else {
-			var query = format("SELECT * FROM Users u WHERE UPPER(u.userId) LIKE '%%%s%%'", pattern.toUpperCase());
-			var hits = DBHibernate.sql(query, User.class)
-					.stream()
-					.map(User::copyWithoutPassword)
-					.toList();
-
-			return ok(hits);
-		}
-
+		return ok(hits);
 	}
 
 	
